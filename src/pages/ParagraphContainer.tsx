@@ -1,11 +1,12 @@
 import { Header } from '../components/Header';
 import { ParagraphForm } from '../components/ParagraphForm';
+import { S } from '../styles/styled';
 
 export const ParagraphContainer = () => {
   return (
-    <main>
+    <S.Container>
       <Header />
       <ParagraphForm />
-    </main>
+    </S.Container>
   );
 };
