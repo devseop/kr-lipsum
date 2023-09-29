@@ -4,7 +4,7 @@ import { FormStateProps, ParagraphProps } from '../types/types';
 const initialState: FormStateProps = {
   paragraphNumber: 1,
   paragraphLength: '짧게',
-  paragraphSource: '낮은 곳으로',
+  paragraphSource: '서시',
   generatedParagraphs: [],
 };
 

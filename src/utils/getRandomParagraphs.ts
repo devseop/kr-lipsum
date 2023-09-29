@@ -1,4 +1,4 @@
-import { poems } from '../lib/poems';
+import { poems } from '../constants/poems';
 import { FormStateProps, ParagraphProps } from '../types/types';
 
 export const getRandomParagraphs = (formData: FormStateProps): ParagraphProps => {
