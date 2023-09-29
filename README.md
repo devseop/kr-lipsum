@@ -70,7 +70,8 @@ yarn install && yarn dev
 
 ```
 
-## 📝 구현 내용
+## 📝 동작 영상
+![kr-lipsum](https://github.com/devseop/kr-lipsum/assets/102455161/0f36e8da-99e8-4adf-92fe-a395f17b09db)
 
 ## 🫱🏻‍🫲🏿 Commit Convention
 
