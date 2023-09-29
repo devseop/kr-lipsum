@@ -66,13 +66,11 @@ export const ParagraphForm = () => {
         </S.ElementContainer>
         <S.Button type='submit'>생성하기</S.Button>
       </S.Form>
-      {formData.generatedParagraphs.length > 0 && (
-        <S.DummyContainer>
-          {formData.generatedParagraphs?.map((paragraph: string, index: number) => (
-            <DummyParagraphs key={index} text={paragraph} index={index} />
-          ))}
-        </S.DummyContainer>
-      )}
+      <S.DummyContainer>
+        {formData.generatedParagraphs?.map((paragraph: string, index: number) => (
+          <DummyParagraphs key={index} text={paragraph} index={index} />
+        ))}
+      </S.DummyContainer>
     </>
   );
 };
