@@ -1,8 +1,8 @@
-import './reset.css';
-import { ParagraphForm } from './components/ParagraphForm';
+import './styles/reset.css';
+import { ParagraphContainer } from './pages/ParagraphContainer';
 
 function App() {
-  return <ParagraphForm />;
+  return <ParagraphContainer />;
 }
 
 export default App;

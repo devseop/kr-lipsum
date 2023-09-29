@@ -1,41 +1,45 @@
-import { useState } from 'react';
-import styled from '@emotion/styled';
-import { useForm } from '../hooks/useForm';
-import { IFormState } from '../types/types';
 import { getRandomParagraphs } from '../utils/getRandomParagraphs';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../rtk/store';
+import { setGeneratedParagraphs, updateFormData } from '../rtk/slice';
+import { DummyParagraphs } from './DummyParagraphs';
+import { S } from '../styles/styled';
 
 export const ParagraphForm = () => {
-  const initialState: IFormState = {
-    paragraphNumber: 1,
-    paragraphLength: '짧게',
-    paragraphSource: '낮은 곳으로',
-  };
+  const dispatch = useDispatch();
+  const formData = useSelector((state: RootState) => state.form);
 
-  const [formData, formInputChangeHandler] = useForm(initialState);
-  const [generatedParagraphs, setGeneratedParagraphs] = useState<string[]>([]);
+  const formInputChangeHandler: React.ChangeEventHandler<HTMLInputElement | HTMLSelectElement> = (
+    e,
+  ) => {
+    const { id, value } = e.target;
+    const updatedData = id === 'paragraphNumber' ? { [id]: parseInt(value, 10) } : { [id]: value };
+
+    dispatch(updateFormData(updatedData));
+  };
 
   const submitFormHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const paragraphs = getRandomParagraphs(formData);
-    console.log(paragraphs);
-    setGeneratedParagraphs(paragraphs);
+    // console.log(paragraphs);
+    dispatch(setGeneratedParagraphs(paragraphs));
   };
 
   return (
     <>
-      <Form onSubmit={submitFormHandler}>
-        <ElementWrapper>
+      <S.Form onSubmit={submitFormHandler}>
+        <S.ElementWrapper>
           <label htmlFor='paragraphNumber'>문단 수</label>
-          <Input
+          <S.Input
             type='number'
             id='paragraphNumber'
             value={formData.paragraphNumber}
             onChange={formInputChangeHandler}
           />
-        </ElementWrapper>
-        <ElementWrapper>
+        </S.ElementWrapper>
+        <S.ElementWrapper>
           <label htmlFor='paragraphLength'>문단 길이</label>
-          <Select
+          <S.Select
             id='paragraphLength'
             value={formData.paragraphLength}
             onChange={formInputChangeHandler}
@@ -43,49 +47,24 @@ export const ParagraphForm = () => {
             <option>짧게</option>
             <option>중간</option>
             <option>길게</option>
-          </Select>
-        </ElementWrapper>
-        <ElementWrapper>
+          </S.Select>
+        </S.ElementWrapper>
+        <S.ElementWrapper>
           <label htmlFor='paragraphSource'>문단 소스</label>
-          <Select
+          <S.Select
             id='paragraphSource'
             value={formData.paragraphSource}
             onChange={formInputChangeHandler}
           >
             <option>낮은 곳으로</option>
             <option>별 헤는 밤</option>
-          </Select>
-        </ElementWrapper>
-        <Button type='submit'>생성하기</Button>
-      </Form>
-      {generatedParagraphs?.map((el: string, idx: number) => <p key={idx}>{el}</p>)}
+          </S.Select>
+        </S.ElementWrapper>
+        <S.Button type='submit'>생성하기</S.Button>
+      </S.Form>
+      {formData.generatedParagraphs?.map((paragraph: string, index: number) => (
+        <DummyParagraphs key={index} text={paragraph} index={index} />
+      ))}
     </>
   );
 };
-
-const Form = styled.form`
-  display: flex;
-  gap: 24px;
-  justify-content: center;
-
-  max-width: 1024px;
-  margin: 0 auto;
-`;
-
-const ElementWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-
-  label {
-    font-size: 16px;
-    font-weight: 400;
-    color: rgba(0, 0, 0, 0.8);
-  }
-`;
-
-const Input = styled.input``;
-
-const Select = styled.select``;
-
-const Button = styled.button``;
