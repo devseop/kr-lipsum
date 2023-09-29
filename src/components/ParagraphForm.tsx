@@ -35,6 +35,7 @@ export const ParagraphForm = () => {
             value={formData.paragraphLength}
             onChange={formInputChangeHandler}
           >
+            <option>아주 짧게</option>
             <option>짧게</option>
             <option>중간</option>
             <option>길게</option>

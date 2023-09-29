@@ -10,7 +10,8 @@ export const getRandomParagraphs = (formData: FormStateProps): ParagraphProps =>
 
   const lines = selectedPoem.poem.split(' ');
   const randomParagraphs: ParagraphProps = [];
-  const maxLength = length === '짧게' ? 40 : length === '중간' ? 120 : 200;
+  const maxLength =
+    length === '아주 짧게' ? 16 : length === '짧게' ? 40 : length === '중간' ? 80 : 120;
 
   for (let i = 0; i < count; i++) {
     let paragraph = '';
