@@ -28,9 +28,10 @@
 }
 
 :root {
-  background-color: #2d2d2d;
+  background-color: #222222;
 }
 
 ul {
-  list-style-type: none;
+  /* list-style-type: none; */
+  margin-left: 24px;
 }
