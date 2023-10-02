@@ -2,6 +2,8 @@
 
 본 사이트는 [한글입숨](http://hangul.thefron.me)을 클론코딩한 프로젝트입니다.
 
+![kr-lipsum](https://github.com/devseop/kr-lipsum/assets/102455161/0f36e8da-99e8-4adf-92fe-a395f17b09db)
+
 ## 🧑🏻‍💻 프로젝트 정보
 
 ### 실행 방법
@@ -71,7 +73,7 @@ yarn install && yarn dev
 ```
 
 ## 📝 동작 영상
-![kr-lipsum](https://github.com/devseop/kr-lipsum/assets/102455161/0f36e8da-99e8-4adf-92fe-a395f17b09db)
+
 
 ## 🫱🏻‍🫲🏿 Commit Convention
 
