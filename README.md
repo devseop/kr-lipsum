@@ -72,9 +72,6 @@ yarn install && yarn dev
 
 ```
 
-## 📝 동작 영상
-
-
 ## 🫱🏻‍🫲🏿 Commit Convention
 
 커밋 컨벤션과 브랜치 전략은 1주차 팀 과제 진행시 결정된 팀 컨벤션을 따랐습니다.
