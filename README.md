@@ -20,7 +20,7 @@ yarn install && yarn dev
 
 ```jsx
 📦 src
-┣ 📂 components // ParagraphContainer를 구성하는 컴포넌트 폴
+┣ 📂 components // ParagraphContainer를 구성하는 컴포넌트 폴더
 ┃ ┣ DummyParagraphs.tsx
 ┃ ┣ Header.tsx
 ┃ ┗ ParagraphForm.tsx
